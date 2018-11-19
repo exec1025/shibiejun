@@ -32,7 +32,11 @@ public class FlowerPresenter implements FlowerContract.Presenter{
     private static final String CLIENT_CREDENTIALS = "client_credentials";
     private static final String API_KEY = "nchiqbpGeMqjWsTGfjMW6wxH";
     private static final String SECRET_KEY = "EWoA44XREdhZ4Z68kdPBe405l9mPC0hd";
+<<<<<<< HEAD
     private static final String ACCESS_TOKEN = "24.265dae68a7fe517017a96da94f615d2c.2592000.1544703164.282335-11483842";
+=======
+    private static final String ACCESS_TOKEN = "24.406c471bac1aca7a25d2f71939880a9a.2592000.1541409596.282335-11483842";
+>>>>>>> 83be12665f918dcec3b1632866339cf596e14b38
 
     public FlowerPresenter(FlowerContract.View mView){
         this.mView = mView;

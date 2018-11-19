@@ -1,10 +1,18 @@
 package qyh.androidprojecthelper;
 
+<<<<<<< HEAD
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.widget.Toast;
+=======
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.widget.RelativeLayout;
+>>>>>>> 83be12665f918dcec3b1632866339cf596e14b38
 
 import com.flyco.tablayout.CommonTabLayout;
 import com.flyco.tablayout.listener.CustomTabEntity;
@@ -19,6 +27,10 @@ import qyh.androidprojecthelper.bean.TabEntity;
 import qyh.androidprojecthelper.fragment.FirstTabFragment;
 
 import qyh.androidprojecthelper.fragment.MoreWindow;
+<<<<<<< HEAD
+=======
+import qyh.androidprojecthelper.fragment.SecondMapFragment;
+>>>>>>> 83be12665f918dcec3b1632866339cf596e14b38
 import qyh.androidprojecthelper.fragment.SecondMapFragment_;
 import qyh.androidprojecthelper.fragment.ThirdTabFragment;
 
@@ -58,7 +70,10 @@ public class MainActivity extends BaseActivity {
     private SecondMapFragment_ secondMapFragment;
     private ThirdTabFragment thirdTabFragment;
     private MoreWindow mMoreWindow;
+<<<<<<< HEAD
     private Context mContext;
+=======
+>>>>>>> 83be12665f918dcec3b1632866339cf596e14b38
 
     private Fragment LastFragment;
 
@@ -78,7 +93,10 @@ public class MainActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< HEAD
         mContext = this;
+=======
+>>>>>>> 83be12665f918dcec3b1632866339cf596e14b38
         initFragment(savedInstanceState);
     }
     private void initTab() {
@@ -95,7 +113,10 @@ public class MainActivity extends BaseActivity {
             }
             @Override
             public void onTabReselect(int position) {
+<<<<<<< HEAD
                 SwitchTo(position);
+=======
+>>>>>>> 83be12665f918dcec3b1632866339cf596e14b38
             }
         });
     }

@@ -5,6 +5,9 @@ package qyh.androidprojecthelper.activity;
  */
 
 public class ResultActivity {
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 83be12665f918dcec3b1632866339cf596e14b38
 }

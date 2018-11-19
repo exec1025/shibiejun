@@ -8,6 +8,7 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="55dp"
         />
+<<<<<<< HEAD
     <ImageButton
         android:id="@+id/imagebutton_mapchange"
         android:layout_width="45dp"
@@ -19,5 +20,16 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="57dp"
         />
+=======
+    <ToggleButton
+        android:id="@+id/btn_mapchange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textOn="标准地图"
+        android:textOff="卫星地图"/>
+>>>>>>> 83be12665f918dcec3b1632866339cf596e14b38
 
 </FrameLayout>
