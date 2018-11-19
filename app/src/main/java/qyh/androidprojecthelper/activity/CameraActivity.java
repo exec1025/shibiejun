@@ -14,8 +14,11 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import qyh.androidprojecthelper.R;
+import qyh.androidprojecthelper.bean.FlowerRecognitionResultBean;
 import qyh.androidprojecthelper.contract.FlowerContract;
 import qyh.androidprojecthelper.presenter.FlowerPresenter;
 

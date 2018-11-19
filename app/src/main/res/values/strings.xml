@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">AndroidProjectHelper</string>
+
         <string name="net_error">网络访问错误，请稍后再试</string>
         <string name="empty">还没有数据哦</string>
         <string name="loading">请稍后</string>

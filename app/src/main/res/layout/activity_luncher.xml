@@ -13,6 +13,10 @@
         android:id="@+id/bu_intoapp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
+        android:background="#00000000"
+=======
+>>>>>>> 83be12665f918dcec3b1632866339cf596e14b38
         android:layout_alignParentRight="true"
         android:text="跳过"
         />

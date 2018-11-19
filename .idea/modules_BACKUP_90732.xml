@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+<<<<<<< HEAD
+      <module fileurl="file://D:\Adroid-project\AndroidProjectHelper-master\AndroidProjectHelper-master\AndroidProjectHelper.iml" filepath="D:\Adroid-project\AndroidProjectHelper-master\AndroidProjectHelper-master\AndroidProjectHelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidProjectHelper-master.iml" filepath="$PROJECT_DIR$/AndroidProjectHelper-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shibiejun.iml" filepath="$PROJECT_DIR$/shibiejun.iml" />
+>>>>>>> 580dac75aaf186403729bf5eb31ad0e1bf407fe5
+    </modules>
+  </component>
+</project>
