@@ -1,0 +1,27 @@
+package qyh.androidprojecthelper.base;
+
+
+import android.content.Context;
+import android.support.multidex.MultiDexApplication;
+
+import com.uuzuche.lib_zxing.activity.ZXingLibrary;
+import com.zhy.autolayout.config.AutoLayoutConifg;
+
+/**
+ * 描述：MultiDexApplication防止方法数过多
+ * Created by czn on 2018/9/17.
+ */
+public class BaseApplication extends MultiDexApplication {
+    private static BaseApplication baseApplication;
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        baseApplication = this;
+        //屏幕适配
+        AutoLayoutConifg.getInstance().useDeviceSize();
+        ZXingLibrary.initDisplayOpinion(this);
+    }
+    public static Context getAppContext() {
+        return baseApplication;
+    }
+}
