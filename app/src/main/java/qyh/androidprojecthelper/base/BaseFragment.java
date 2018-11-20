@@ -197,5 +197,4 @@ public abstract  class BaseFragment<T extends BasePresenter, E extends BaseModel
             mPresenter.onDestroy();
         mRxManager.clear();
     }
-
 }

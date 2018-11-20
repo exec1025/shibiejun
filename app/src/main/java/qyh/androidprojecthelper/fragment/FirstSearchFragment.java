@@ -1,6 +1,7 @@
 package qyh.androidprojecthelper.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.transition.AutoTransition;
@@ -19,6 +20,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import qyh.androidprojecthelper.R;
+import qyh.androidprojecthelper.activity.SearchDetailActivity;
 import qyh.androidprojecthelper.base.BaseFragment;
 
 /**
@@ -67,7 +69,7 @@ public class FirstSearchFragment extends BaseFragment{
     }
 
     private void initSearchView(Bundle savedInstanceState,View view){
-        Log.e("initView:", "开始监听");
+        //Log.e("initView:", "开始监听");
         tvSearch = (TextView)view.findViewById(R.id.tv_search);
         mSearchLayout = (LinearLayout)view.findViewById(R.id.ll_search);
         mScrollView = (ScrollView)view.findViewById(R.id.scrollView);
@@ -89,7 +91,7 @@ public class FirstSearchFragment extends BaseFragment{
 //
 //            getActivity().getWindow().setStatusBarColor(Color.TRANSPARENT);
 //        }
-        Log.e("mScrollView:", "开始监听");
+        //Log.e("mScrollView:", "开始监听");
         //设置toolbar初始透明度为0
         toolbar.getBackground().mutate().setAlpha(0);
         //scrollview滚动状态监听
@@ -109,7 +111,15 @@ public class FirstSearchFragment extends BaseFragment{
                     isExpand = false;
                 }
 
-                Log.d("mScrollView:", "滚动");
+               // Log.d("mScrollView:", "滚动");
+            }
+        });
+
+        tvSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SearchDetailActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -137,7 +147,7 @@ public class FirstSearchFragment extends BaseFragment{
         mSearchLayout.setLayoutParams(LayoutParams);
         //开始动画
         beginDelayedTransition(mSearchLayout);
-        Log.d("expand", "进入expand");
+       // Log.d("expand", "进入expand");
     }
 
     private void reduce() {
@@ -162,5 +172,11 @@ public class FirstSearchFragment extends BaseFragment{
     private int dip2px(float dpVale) {
         final float scale = getResources().getDisplayMetrics().density;
         return (int) (dpVale * scale + 0.5f);
+    }
+
+    @Override
+    public void onResume() {
+        int id = getActivity().getIntent().getIntExtra("id", 0);
+        super.onResume();
     }
 }

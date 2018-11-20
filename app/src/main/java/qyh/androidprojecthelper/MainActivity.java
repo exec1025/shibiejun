@@ -2,17 +2,10 @@ package qyh.androidprojecthelper;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.widget.Toast;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.flyco.tablayout.CommonTabLayout;
@@ -26,8 +19,6 @@ import qyh.androidprojecthelper.base.BaseActivity;
 import qyh.androidprojecthelper.bean.TabEntity;
 import qyh.androidprojecthelper.fragment.FirstSearchFragment;
 import qyh.androidprojecthelper.fragment.MoreWindow;
-import qyh.androidprojecthelper.fragment.SecondMapFragment;
-
 import qyh.androidprojecthelper.fragment.SecondMapFragment_;
 import qyh.androidprojecthelper.fragment.ThirdTabFragment;
 
@@ -184,6 +175,20 @@ public class MainActivity extends BaseActivity {
         tabLayout.setMsgMargin(3,0,2);
         //隐藏消息
         //tabLayout.hideMsg(1);
+
+        int id = getIntent().getIntExtra("id", 0);
+        if (id == 2) {
+            FirstSearchFragment fragmen = new FirstSearchFragment();
+            FragmentManager fmanger = getSupportFragmentManager();
+            FragmentTransaction transaction = fmanger.beginTransaction();
+            transaction.replace(R.id.viewpager, fragmen);
+            transaction.commit();
+            //帮助跳转到指定子fragment
+            Intent intent=new Intent();
+            intent.setClass(MainActivity.this,FirstSearchFragment.class);
+            intent.putExtra("id",2);
+        }
+        super.onResume();
     }
 
     private void showMoreWindow() {

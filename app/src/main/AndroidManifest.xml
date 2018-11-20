@@ -56,7 +56,7 @@
         </activity>
 
         <activity android:name=".activity.CameraActivity"/>
-
+        <activity android:name=".activity.SearchDetailActivity"/>
         <service android:name="com.amap.api.location.APSService" />
 
         <meta-data
