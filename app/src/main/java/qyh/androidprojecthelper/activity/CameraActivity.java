@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +23,7 @@ import qyh.androidprojecthelper.R;
 import qyh.androidprojecthelper.bean.FlowerRecognitionResultBean;
 import qyh.androidprojecthelper.contract.FlowerContract;
 import qyh.androidprojecthelper.presenter.FlowerPresenter;
+import qyh.androidprojecthelper.view.MyScrollView;
 
 /**
  * Created by lenovo on 2018/10/3.
@@ -29,6 +32,7 @@ import qyh.androidprojecthelper.presenter.FlowerPresenter;
 public class CameraActivity extends AppCompatActivity implements FlowerContract.View{
 
     private FlowerPresenter mFlowerPresenter;
+    private MyScrollView mScrollView;
 
     @Override
     protected void onCreate(Bundle saveInstanceState){
@@ -39,6 +43,18 @@ public class CameraActivity extends AppCompatActivity implements FlowerContract.
         CropImage.activity(null).setGuidelines(CropImageView.Guidelines.ON).start(this);
 
         mFlowerPresenter = new FlowerPresenter(this);
+        mScrollView = new MyScrollView(this);
+        initListener();
+    }
+
+    protected void initListener(){
+        mScrollView.setOnScrollListener(new MyScrollView.OnScrollListener(){
+            @Override
+            public void onScroll(int scrollY, int state)
+            {
+
+            }
+        });
     }
 
     /**
@@ -55,7 +71,7 @@ public class CameraActivity extends AppCompatActivity implements FlowerContract.
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
-                ((ImageView) findViewById(R.id.crop_image_result)).setImageURI(result.getUri());
+                ((ImageView) findViewById(R.id.image_result)).setImageURI(result.getUri());
                 try {
                     Bitmap photo = MediaStore.Images.Media.getBitmap(this.getContentResolver(), result.getUri());
                     mFlowerPresenter.getRecognitionResultByImage(photo);
@@ -92,7 +108,7 @@ public class CameraActivity extends AppCompatActivity implements FlowerContract.
     @Override
     public void showListData(String listData) {
         String listdata = listData.toString();
-        ((TextView) findViewById(R.id.information_result)).setText(listdata);
+        ((TextView) findViewById(R.id.tv_description)).setText(listdata);
     }
 
 //    @Override
