@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
@@ -35,9 +33,7 @@ public class SecondMapFragment_ extends BaseFragment implements CompoundButton.O
     //@BindView(R.id.map)
     public MapView mapView;
     //@BindView(R.id.btn_mapchange)
-
-    public ImageButton mapChangeImageButton;
-
+    public ToggleButton toggleButton;
 
     private Context mContext;
     private AMap aMap;
@@ -98,24 +94,11 @@ public class SecondMapFragment_ extends BaseFragment implements CompoundButton.O
         //aMap.getUiSettings().setTiltGesturesEnabled(false);
         aMap.setLocationSource(this);
         aMap.setMyLocationEnabled(true);
-        mapChangeImageButton=(ImageButton) view.findViewById(R.id.imagebutton_mapchange);
-        mapChangeImageButton.setAlpha(0.7f);//透明度值
+        toggleButton=(ToggleButton) view.findViewById(R.id.btn_mapchange);
     }
 
     private void initlistener(){
-        mapChangeImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                int id = aMap.getMapType();
-                if(id == AMap.MAP_TYPE_NORMAL){
-                    aMap.setMapType(AMap.MAP_TYPE_SATELLITE);
-                }else {
-                    aMap.setMapType(AMap.MAP_TYPE_NORMAL);
-                }
-            }
-        });
-//        setOnCheckedChangeListener(this);
-
+        toggleButton.setOnCheckedChangeListener(this);
     }
 
     /**

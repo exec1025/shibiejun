@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+<<<<<<< HEAD
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/app/src/main/java/qyh/androidprojecthelper/fragment" vcs="Git" />
+    <mapping directory="D:\Adroid-project\AndroidProjectHelper-master\AndroidProjectHelper-master\-" vcs="Git" />
+=======
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/app/src/main/java/qyh/androidprojecthelper/fragment" vcs="Git" />
+>>>>>>> 580dac75aaf186403729bf5eb31ad0e1bf407fe5
+  </component>
+</project>

@@ -90,6 +90,7 @@ public class FirstTabFragment extends BaseFragment<FirstPresenter,FirstModel> im
         refreshLayout.endLoadingMore();
     }
     //如果使用内嵌的加载提示，需要在这里处理，，
+
     // 我使用的LoadingDialog的方法，加载成功自动消失，所以不用处理进度消失等事件
     @Override
     public void showLoading(String title) {
