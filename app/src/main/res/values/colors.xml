@@ -13,11 +13,8 @@
     <color name="main_color">#00BFFF</color>
 
     <color name="white">#FFFFFF</color>
-<<<<<<< HEAD
     <color name="btn_mapchange_bg">#FEFDFB</color>
     <color name="map_change_shadow">#BEBCBA</color>
-=======
->>>>>>> 83be12665f918dcec3b1632866339cf596e14b38
     <color name="gray">#efefef</color>
     <color name="black33">#333333</color>
     <color name="black66">#666666</color>
