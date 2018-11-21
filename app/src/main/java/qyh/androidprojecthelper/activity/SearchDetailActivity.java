@@ -1,6 +1,5 @@
 package qyh.androidprojecthelper.activity;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -10,8 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,7 +23,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import qyh.androidprojecthelper.MainActivity;
 import qyh.androidprojecthelper.R;
 import qyh.androidprojecthelper.adapter.SearchContentAdapter1;
 import qyh.androidprojecthelper.adapter.SearchContentAdapter2;
@@ -59,6 +61,7 @@ public class SearchDetailActivity extends AppCompatActivity {
     private boolean isHidePartialHistory = true; //是否隐藏部分历史,默认为true
     private boolean isInHistoryDelete = false; //是否处于删除历史模式
 
+    private WebView webview;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +85,8 @@ public class SearchDetailActivity extends AppCompatActivity {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
 
+        View view = LayoutInflater.from(this).inflate(R.layout.fragment_baike, webview, false);
+        webview = (WebView) view.findViewById(R.id.webview);
         recyclerViewRecommend1 = (RecyclerView) findViewById(R.id.rv_recommend_bar_1);
         recyclerViewRecommend2 = (RecyclerView) findViewById(R.id.rv_recommend_bar_2);
         recyclerViewHistory = (RecyclerView) findViewById(R.id.rv_recommend_bar_history);
@@ -97,10 +102,7 @@ public class SearchDetailActivity extends AppCompatActivity {
         tvCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent;
-                intent = new Intent(SearchDetailActivity.this, MainActivity.class);
-                intent.putExtra("id", 1);
-                startActivity(intent);
+                finish();
             }
         });
         DividerItemDecoration itemDecorationHor = new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.HORIZONTAL);
@@ -183,10 +185,22 @@ public class SearchDetailActivity extends AppCompatActivity {
         historyContentList.add("牵牛花");
     }
 
+
     private SearchItemClickContract recommend1BarItemClickListener = new SearchItemClickContract() {
         @Override
         public void onItemClick(View view, int position) {
             Toast.makeText(getApplicationContext(), String.format("你点击了-%s", recommend1ContentList.get(position)), Toast.LENGTH_SHORT).show();
+            webview = (WebView) findViewById(R.id.webview);
+            WebSettings setting = webview.getSettings();
+            setting.setJavaScriptEnabled(true);//支持js
+            setting.setSupportZoom(false);//不支持缩放
+            setting.setBuiltInZoomControls(false);//不出现放大和缩小的按钮
+            setting.setCacheMode(WebSettings.LOAD_NO_CACHE);//不设置网络缓存
+
+//            webview.setWebViewClient(new WebViewClient() {});
+//            webview.setWebChromeClient(new WebChromeClient() {});
+            String url = "https://baike.baidu.com/item/"+recommend1ContentList.get(position);
+            webview.loadUrl(url);
         }
     };
 
@@ -194,6 +208,16 @@ public class SearchDetailActivity extends AppCompatActivity {
         @Override
         public void onItemClick(View view, int position) {
             Toast.makeText(getApplicationContext(), String.format("你点击了-%s", recommend2ContentList.get(position)), Toast.LENGTH_SHORT).show();
+            WebSettings setting = webview.getSettings();
+            setting.setJavaScriptEnabled(true);//支持js
+            setting.setSupportZoom(false);//不支持缩放
+            setting.setBuiltInZoomControls(false);//不出现放大和缩小的按钮
+            setting.setCacheMode(WebSettings.LOAD_NO_CACHE);//不设置网络缓存
+
+//            webview.setWebViewClient(new WebViewClient() {});
+//            webview.setWebChromeClient(new WebChromeClient() {});
+            String url = "https://baike.baidu.com/item/"+recommend1ContentList.get(position);
+            webview.loadUrl(url);
         }
     };
 
@@ -201,6 +225,17 @@ public class SearchDetailActivity extends AppCompatActivity {
         @Override
         public void onItemClick(View view, int position) {
             Toast.makeText(getApplicationContext(), String.format("你点击了-%s", historyContentList.get(position)), Toast.LENGTH_SHORT).show();
+            WebSettings setting = webview.getSettings();
+            setting.setJavaScriptEnabled(true);//支持js
+            setting.setSupportZoom(false);//不支持缩放
+            setting.setBuiltInZoomControls(false);//不出现放大和缩小的按钮
+            setting.setCacheMode(WebSettings.LOAD_NO_CACHE);//不设置网络缓存
+
+//            webview.setWebViewClient(new WebViewClient() {});
+//            webview.setWebChromeClient(new WebChromeClient() {});
+            String url = "https://baike.baidu.com/item/"+recommend1ContentList.get(position);
+            Log.d("url::", url);
+            webview.loadUrl(url);
         }
     };
 

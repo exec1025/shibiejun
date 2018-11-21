@@ -2,10 +2,8 @@ package qyh.androidprojecthelper;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.flyco.tablayout.CommonTabLayout;
@@ -99,7 +97,6 @@ public class MainActivity extends BaseActivity {
             }
             @Override
             public void onTabReselect(int position) {
-
                 SwitchTo(position);
 
             }
@@ -154,7 +151,6 @@ public class MainActivity extends BaseActivity {
 //                transaction.hide(thirdTabFragment);
                 transaction.commitAllowingStateLoss();
                 showMoreWindow();
-
                 break;
             case 3:
                 transaction.show(thirdTabFragment);
@@ -176,19 +172,22 @@ public class MainActivity extends BaseActivity {
         //隐藏消息
         //tabLayout.hideMsg(1);
 
-        int id = getIntent().getIntExtra("id", 0);
-        if (id == 2) {
-            FirstSearchFragment fragmen = new FirstSearchFragment();
-            FragmentManager fmanger = getSupportFragmentManager();
-            FragmentTransaction transaction = fmanger.beginTransaction();
-            transaction.replace(R.id.viewpager, fragmen);
-            transaction.commit();
-            //帮助跳转到指定子fragment
-            Intent intent=new Intent();
-            intent.setClass(MainActivity.this,FirstSearchFragment.class);
-            intent.putExtra("id",2);
-        }
-        super.onResume();
+//        int id = getIntent().getIntExtra("id", 0);
+//        if (id == 1) {
+////            FirstSearchFragment fragmen = new FirstSearchFragment();
+////            FragmentManager fmanger = getSupportFragmentManager();
+////            FragmentTransaction transaction = fmanger.beginTransaction();
+////            transaction.replace(R.id.viewpager, fragmen);
+////            transaction.commit();
+////            //帮助跳转到指定子fragment
+////            Intent intent=new Intent();
+////            intent.setClass(MainActivity.this,FirstSearchFragment.class);
+////            intent.putExtra("id",2);
+//            SwitchTo(0);
+//            tabLayout.setCurrentTab(0);
+//        }
+
+        //super.onResume();
     }
 
     private void showMoreWindow() {
@@ -196,7 +195,6 @@ public class MainActivity extends BaseActivity {
             mMoreWindow = new MoreWindow(this);
             mMoreWindow.init(tabLayout);
         }
-
         mMoreWindow.showMoreWindow(tabLayout);
     }
 }

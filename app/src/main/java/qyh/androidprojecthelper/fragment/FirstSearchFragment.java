@@ -174,9 +174,9 @@ public class FirstSearchFragment extends BaseFragment{
         return (int) (dpVale * scale + 0.5f);
     }
 
-    @Override
-    public void onResume() {
-        int id = getActivity().getIntent().getIntExtra("id", 0);
-        super.onResume();
-    }
+//    @Override
+//    public void onResume() {
+//        int id = getActivity().getIntent().getIntExtra("id", 0);
+//        super.onResume();
+//    }
 }
