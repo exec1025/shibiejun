@@ -3,37 +3,41 @@ package qyh.androidprojecthelper.bean;
 import java.util.List;
 
 /**
- * 描述:花卉识别结果信息
- * Created by czn on 2018/10/6.
+ * 描述:动物识别结果信息
+ * Created by czn on 2018/11/22.
  */
 
-public class FlowerRecognitionResultBean {
+public class AnimalRecognitionResultBean {
     /**
-     * log_id": 1705495792822072357,
-     *"result": [{
-        "score": 0.99979120492935,
-        "name": "莲",
-        "baike_info": {
-            "baike_url": "http://baike.baidu.com/item/%E8%8E%B2/2717141",
-            "description": "莲(Nelumbo nucifera)，又称荷、荷花、莲花、芙蕖、鞭蓉、水芙蓉、水芝、水芸、水旦、水华等，溪客、玉环是其雅称，未开的花蕾称菡萏，已开的花朵称鞭蕖，莲科，属多年生水生宿根草本植物，其地下茎称藕，能食用，叶入药，莲子为上乘补品，花可供观赏。是我国十大名花之一。是印度的国花。莲，双子叶植物，睡莲科。多年生挺水草本植物。根状茎横走，粗而肥厚，节间膨大，内有纵横通气孔道，节部缢缩。叶基生，挺出水面，盾形，直径30-90cm，波状边缘，上面深绿色，下面浅绿色。叶柄有小刺，长1-2m，挺出水面。花单生，直径10-25cm，椭圆花瓣多数，白色或粉红色；花柄长1-2m。花托在果期膨大，直径5-10cm，海绵质。坚果椭圆形和卵圆形，长1.5-2.0cm，灰褐色。种子卵圆形，长1.2-1.7cm，种皮红棕色。生于池塘、浅湖泊及稻田中。中国南北各省有自生或栽培，经济价值高。人们习惯上称种子为“莲子”、地下茎为“藕”、花托为“莲蓬”、叶为“荷叶”。"
-            }
-        },
-        {
-         "score": 0.00015144718054216,
-         "name": "红睡莲"
-        },
-        {
-         "score": 1.2172759852547e-05,
-         "name": "白睡莲"
-         },
-        {
-         "score": 6.305016540864e-06,
-         "name": "延药睡莲"
-        },
-        {
-         "score": 3.6133328649157e-06,
-         "name": "华夏慈姑"
-        }]
+     *"log_id": 7392482912853822863,
+     "result": [{
+     "score": "0.993811",
+     "name": "叉角羚",
+     "baike_info": {
+     "baike_url": "http://baike.baidu.com/item/%E5%8F%89%E8%A7%92%E7%BE%9A/801703",
+     "description": "叉角羚(学名：Antilocapra americana)：在角的中部角鞘有向前伸的分枝，故名。体型中等，体长1-1.5米，尾长7.5-10厘米，肩高81-104厘米，成体重36-60千克，雌体比雄体小；背面为红褐色，颈部有黑色鬃毛，腹部和臀部为白色，颊面部和颈部两侧有黑色块斑；毛被下面为绒毛，上覆以粗糙、质脆的长毛，由于某些皮肤肌的作用，能使其毛被呈不同角度，以利于保暖或散热。植食。叉角羚奔跑速度非常快，最高时速达100千米。一次跳跃可达3.5-6米。善游泳。夏季组成小群活动，冬季则集结成上百只的大群。为寻找食物和水源，一年中常进行几次迁移。性机警，视觉敏锐，能看到数千米外的物体。遇险时，臀部的白色毛能立起，向同伴告警。分布于北美洲。"
+     }
+     },
+     {
+     "score": "0.000289439",
+     "name": "印度羚"
+     },
+     {
+     "score": "0.000186248",
+     "name": "藏羚羊"
+     },
+     {
+     "score": "0.000147176",
+     "name": "跳羚"
+     },
+     {
+     "score": "0.000134434",
+     "name": "驯鹿"
+     },
+     {
+     "score": "9.86555e-05",
+     "name": "高鼻羚羊"
+     }]
      */
     private String log_id;
     private List<ResultBean> result;
@@ -56,7 +60,7 @@ public class FlowerRecognitionResultBean {
 
     @Override
     public String toString() {
-        return "FlowerRecognitionResultBean{" +
+        return "AnimalRecognitionResultBean{" +
                 "log_id='" + log_id + '\'' +
                 ", result=" + result +
                 '}';
@@ -65,7 +69,7 @@ public class FlowerRecognitionResultBean {
     public static class ResultBean{
         private String name;
         private String score;
-        private Baike_infoBean baike_info;
+        private ResultBean.Baike_infoBean baike_info;
 
         public void setName(String name) {
             this.name = name;
@@ -75,7 +79,7 @@ public class FlowerRecognitionResultBean {
             this.score = score;
         }
 
-        public void setBaike_info(Baike_infoBean baike_info) {
+        public void setBaike_info(ResultBean.Baike_infoBean baike_info) {
             this.baike_info = baike_info;
         }
 
@@ -87,7 +91,7 @@ public class FlowerRecognitionResultBean {
             return score;
         }
 
-        public Baike_infoBean getBaike_info() {
+        public ResultBean.Baike_infoBean getBaike_info() {
             return baike_info;
         }
 

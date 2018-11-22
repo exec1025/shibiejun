@@ -2,7 +2,7 @@ package qyh.androidprojecthelper.bean;
 
 /**
  * 描述：获得AccessToken
- * Created by lenovo on 2018/10/6.
+ * Created by czn on 2018/10/6.
  */
 
 public class AccessTokenBean {

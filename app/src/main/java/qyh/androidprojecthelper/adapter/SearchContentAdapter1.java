@@ -15,6 +15,7 @@ import qyh.androidprojecthelper.contract.SearchItemClickContract;
 
 
 /**
+ * 描述：搜索详情界面Adapter1
  * Created by czn on 2018/11/20.
  */
 

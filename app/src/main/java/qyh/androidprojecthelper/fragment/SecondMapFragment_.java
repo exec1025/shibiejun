@@ -3,13 +3,11 @@ package qyh.androidprojecthelper.fragment;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.amap.api.location.AMapLocation;
@@ -21,12 +19,11 @@ import com.amap.api.maps2d.LocationSource;
 import com.amap.api.maps2d.MapView;
 import com.amap.api.maps2d.model.MyLocationStyle;
 
-import butterknife.BindView;
 import qyh.androidprojecthelper.R;
 import qyh.androidprojecthelper.base.BaseFragment;
 
 /**
- * Created by lenovo on 2018/9/29.
+ * Created by czn on 2018/9/29.
  */
 
 public class SecondMapFragment_ extends BaseFragment implements CompoundButton.OnCheckedChangeListener,LocationSource, AMapLocationListener {

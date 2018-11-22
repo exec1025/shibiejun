@@ -3,37 +3,50 @@ package qyh.androidprojecthelper.bean;
 import java.util.List;
 
 /**
- * 描述:花卉识别结果信息
- * Created by czn on 2018/10/6.
+ * 描述：菜品识别结果信息
+ * Created by czn on 2018/11/22.
  */
 
-public class FlowerRecognitionResultBean {
+public class DishRecognitionResultBean {
     /**
-     * log_id": 1705495792822072357,
-     *"result": [{
-        "score": 0.99979120492935,
-        "name": "莲",
-        "baike_info": {
-            "baike_url": "http://baike.baidu.com/item/%E8%8E%B2/2717141",
-            "description": "莲(Nelumbo nucifera)，又称荷、荷花、莲花、芙蕖、鞭蓉、水芙蓉、水芝、水芸、水旦、水华等，溪客、玉环是其雅称，未开的花蕾称菡萏，已开的花朵称鞭蕖，莲科，属多年生水生宿根草本植物，其地下茎称藕，能食用，叶入药，莲子为上乘补品，花可供观赏。是我国十大名花之一。是印度的国花。莲，双子叶植物，睡莲科。多年生挺水草本植物。根状茎横走，粗而肥厚，节间膨大，内有纵横通气孔道，节部缢缩。叶基生，挺出水面，盾形，直径30-90cm，波状边缘，上面深绿色，下面浅绿色。叶柄有小刺，长1-2m，挺出水面。花单生，直径10-25cm，椭圆花瓣多数，白色或粉红色；花柄长1-2m。花托在果期膨大，直径5-10cm，海绵质。坚果椭圆形和卵圆形，长1.5-2.0cm，灰褐色。种子卵圆形，长1.2-1.7cm，种皮红棕色。生于池塘、浅湖泊及稻田中。中国南北各省有自生或栽培，经济价值高。人们习惯上称种子为“莲子”、地下茎为“藕”、花托为“莲蓬”、叶为“荷叶”。"
-            }
-        },
-        {
-         "score": 0.00015144718054216,
-         "name": "红睡莲"
-        },
-        {
-         "score": 1.2172759852547e-05,
-         "name": "白睡莲"
-         },
-        {
-         "score": 6.305016540864e-06,
-         "name": "延药睡莲"
-        },
-        {
-         "score": 3.6133328649157e-06,
-         "name": "华夏慈姑"
-        }]
+     "log_id": 7357081719365269362,
+     "result_num": 5,
+     "result": [
+     {
+     "calorie": "119",
+     "has_calorie": true,
+     "name": "酸汤鱼",
+     "probability": "0.396031"
+     "baike_info": {
+     "baike_url": "http://baike.baidu.com/item/%E9%85%B8%E6%B1%A4%E9%B1%BC/1754055",
+     "description": "酸汤鱼，是黔桂湘交界地区的一道侗族名菜，与侗族相邻的苗、水、瑶等少数民族也有相似菜肴，但其中以贵州侗族酸汤鱼最为有名，据考证此菜肴最早源于黎平县雷洞镇牙双一带。制作原料主要有鱼肉、酸汤、山仓子等香料。成菜后，略带酸味、幽香沁人、鲜嫩爽口开胃，是贵州“黔系”菜肴的代表作之一。这道菜通常先自制酸汤，之后将活鱼去掉内脏，入酸汤煮制。"
+     }
+     },
+     {
+     "calorie": "38",
+     "has_calorie": true,
+     "name": "原味黑鱼煲",
+     "probability": "0.265432",
+
+     },
+     {
+     "calorie": "144",
+     "has_calorie": true,
+     "name": "椒鱼片",
+     "probability": "0.0998993"
+     },
+     {
+     "calorie": "98",
+     "has_calorie": true,
+     "name": "酸菜鱼",
+     "probability": "0.0701917"
+     },
+     {
+     "calorie": "257.65",
+     "has_calorie": true,
+     "name": "柠檬鱼",
+     "probability": "0.0471465"
+     }]
      */
     private String log_id;
     private List<ResultBean> result;
@@ -56,35 +69,57 @@ public class FlowerRecognitionResultBean {
 
     @Override
     public String toString() {
-        return "FlowerRecognitionResultBean{" +
+        return "DishRecognitionResultBean{" +
                 "log_id='" + log_id + '\'' +
                 ", result=" + result +
                 '}';
     }
 
     public static class ResultBean{
+        private String calorie;
+        private boolean has_calorie;
         private String name;
-        private String score;
+        private String probability;
         private Baike_infoBean baike_info;
+
+        public void setCalorie(String calorie) {
+            this.calorie = calorie;
+        }
+
+        public void setHas_calorie(boolean has_calorie) {
+            this.has_calorie = has_calorie;
+        }
 
         public void setName(String name) {
             this.name = name;
         }
 
-        public void setScore(String score) {
-            this.score = score;
+        public void setProbability(String probability) {
+            this.probability = probability;
         }
 
         public void setBaike_info(Baike_infoBean baike_info) {
             this.baike_info = baike_info;
         }
 
+        public String getCalorie() {
+            return calorie;
+        }
+
+        public boolean isHas_calorie() {
+            return has_calorie;
+        }
+
+        public String getProbability() {
+            return probability;
+        }
+
         public String getName() {
             return name;
         }
 
-        public String getScore() {
-            return score;
+        public String getprobability() {
+            return probability;
         }
 
         public Baike_infoBean getBaike_info() {
@@ -94,8 +129,10 @@ public class FlowerRecognitionResultBean {
         @Override
         public String toString() {
             return "ResultBean{" +
-                    "name='" + name + '\'' +
-                    ", score='" + score + '\'' +
+                    "calorie='" + calorie + '\'' +
+                    ", has_calorie='" + has_calorie + '\'' +
+                    ", name='" + name + '\'' +
+                    ", probability='" + probability + '\'' +
                     ", baike_info=" + baike_info +
                     '}';
         }

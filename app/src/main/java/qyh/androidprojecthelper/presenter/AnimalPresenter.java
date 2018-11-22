@@ -9,8 +9,8 @@ import java.util.List;
 
 import qyh.androidprojecthelper.api.ApiService;
 import qyh.androidprojecthelper.bean.AccessTokenBean;
-import qyh.androidprojecthelper.bean.FlowerRecognitionResultBean;
-import qyh.androidprojecthelper.contract.FlowerContract;
+import qyh.androidprojecthelper.bean.AnimalRecognitionResultBean;
+import qyh.androidprojecthelper.contract.AnimalContract;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -19,28 +19,25 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * Created by lenovo on 2018/10/6.
+ * 描述：动物presenter
+ * Created by czn on 2018/11/22.
  */
 
-public class FlowerPresenter implements FlowerContract.Presenter{
-
-    private FlowerContract.View mView;
-    private ApiService mFlowerApiService;
+public class AnimalPresenter implements AnimalContract.Presenter {
+    private AnimalContract.View mView;
+    private ApiService mAnimalApiService;
 
     private static final String CLIENT_CREDENTIALS = "client_credentials";
     private static final String API_KEY = "nchiqbpGeMqjWsTGfjMW6wxH";
     private static final String SECRET_KEY = "EWoA44XREdhZ4Z68kdPBe405l9mPC0hd";
-<<<<<<< HEAD
     private static final String ACCESS_TOKEN = "24.265dae68a7fe517017a96da94f615d2c.2592000.1544703164.282335-11483842";
-=======
 
- //   private static final String ACCESS_TOKEN = "24.265dae68a7fe517017a96da94f615d2c.2592000.1544703164.282335-11483842";
+    //   private static final String ACCESS_TOKEN = "24.265dae68a7fe517017a96da94f615d2c.2592000.1544703164.282335-11483842";
 
-    private static final String ACCESS_TOKEN = "24.406c471bac1aca7a25d2f71939880a9a.2592000.1541409596.282335-11483842";
+    //   private static final String ACCESS_TOKEN = "24.406c471bac1aca7a25d2f71939880a9a.2592000.1541409596.282335-11483842";
 
->>>>>>> b5be6aee3cf83bb786bad43fbe7614cf69143e32
 
-    public FlowerPresenter(FlowerContract.View mView){
+    public AnimalPresenter(AnimalContract.View mView){
         this.mView = mView;
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -49,11 +46,11 @@ public class FlowerPresenter implements FlowerContract.Presenter{
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
 
-        mFlowerApiService = retrofit.create(ApiService.class);
+        mAnimalApiService = retrofit.create(ApiService.class);
     }
     @Override
     public void getAccessToken() {
-        mFlowerApiService.getAccessToken(CLIENT_CREDENTIALS, API_KEY, SECRET_KEY)
+        mAnimalApiService.getAccessToken(CLIENT_CREDENTIALS, API_KEY, SECRET_KEY)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<AccessTokenBean>() {
@@ -79,10 +76,10 @@ public class FlowerPresenter implements FlowerContract.Presenter{
         String encodeResult = bitmapToString(bitmap);
         Integer baikenum = 1;
 
-        mFlowerApiService.getFlowerRecognitionResultByImage(ACCESS_TOKEN, encodeResult, baikenum)
+        mAnimalApiService.getAnimalRecognitionResultByImage(ACCESS_TOKEN, encodeResult, baikenum)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<FlowerRecognitionResultBean>() {
+                .subscribe(new Observer<AnimalRecognitionResultBean>() {
                     @Override
                     public void onCompleted() {
 
@@ -94,11 +91,10 @@ public class FlowerPresenter implements FlowerContract.Presenter{
                     }
 
                     @Override
-                    public void onNext(FlowerRecognitionResultBean flowerRecognitionResultBean) {
-                        Log.e("onNext",flowerRecognitionResultBean.toString());
-                        List<FlowerRecognitionResultBean.ResultBean> resultBeans = flowerRecognitionResultBean.getResult();
+                    public void onNext(AnimalRecognitionResultBean animalRecognitionResultBean) {
+                        Log.e("onNext",animalRecognitionResultBean.toString());
+                        List<AnimalRecognitionResultBean.ResultBean> resultBeans = animalRecognitionResultBean.getResult();
                         mView.showListData(resultBeans.toString());
-                        //mView.showListData(flowerRecognitionResultBean.toString());
                     }
                 });
     }
@@ -111,5 +107,4 @@ public class FlowerPresenter implements FlowerContract.Presenter{
         byte[] bytes = baos.toByteArray();
         return Base64.encodeToString(bytes, Base64.DEFAULT);
     }
-
 }
