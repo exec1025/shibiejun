@@ -2,6 +2,8 @@ package qyh.androidprojecthelper.contract;
 
 import android.graphics.Bitmap;
 
+import java.util.List;
+
 import qyh.androidprojecthelper.base.BaseView;
 
 /**
@@ -16,13 +18,18 @@ public interface FlowerContract {
 //        Observable<List<FlowerRecognitionResultBean>> getFlowerRecognitionResultByImage(String accessToken,String image);
 //    }
 
-    interface View extends BaseView{
+    interface View<T> extends BaseView{
         //void showListData(FlowerRecognitionResultBean listData);
-        void showListData(String listData);
+        //void showListData(String listData);
+        void showListData(List<T> listData);
     }
 
     interface Presenter{
         void getAccessToken();
         void getRecognitionResultByImage(Bitmap bitmap);
     }
+
+//    interface DataToWeb{
+//        String showListData(String listData);
+//    }
 }

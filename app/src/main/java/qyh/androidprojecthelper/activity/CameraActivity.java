@@ -14,6 +14,7 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.IOException;
+import java.util.List;
 
 import qyh.androidprojecthelper.R;
 import qyh.androidprojecthelper.contract.AnimalContract;
@@ -24,6 +25,7 @@ import qyh.androidprojecthelper.presenter.AnimalPresenter;
 import qyh.androidprojecthelper.presenter.CarPresenter;
 import qyh.androidprojecthelper.presenter.DishPresenter;
 import qyh.androidprojecthelper.presenter.FlowerPresenter;
+import qyh.androidprojecthelper.presenter.WebPresenter;
 import qyh.androidprojecthelper.view.MyScrollView;
 
 /**
@@ -31,12 +33,13 @@ import qyh.androidprojecthelper.view.MyScrollView;
  * Created by czn on 2018/10/3.
  */
 
-public class CameraActivity extends AppCompatActivity implements FlowerContract.View,AnimalContract.View, CarContract.View, DishContract.View{
+public class CameraActivity extends AppCompatActivity implements FlowerContract.View, AnimalContract.View, CarContract.View, DishContract.View{
 
     private FlowerPresenter mFlowerPresenter;
     private AnimalPresenter mAnimalPresenter;
     private CarPresenter mCarPresenter;
     private DishPresenter mDishPresenter;
+    private WebPresenter mWebPresenter;
 
     private MyScrollView mScrollView;
     private int JudgeType;
@@ -56,6 +59,7 @@ public class CameraActivity extends AppCompatActivity implements FlowerContract.
         if (type.equals("flower")){
             //Log.e("extras_type:", "return flower");
             mFlowerPresenter = new FlowerPresenter(this);
+            mWebPresenter = new WebPresenter();
             JudgeType = 1;
         }else if (type.equals("animal")){
             //Log.e("extras_type:", "return animal");
@@ -66,7 +70,7 @@ public class CameraActivity extends AppCompatActivity implements FlowerContract.
             mCarPresenter = new CarPresenter(this);
             JudgeType = 3;
         }else if (type.equals("dish")){
-            //Log.e("extras_type:", "return car");
+            //Log.e("extras_type:", "return dish");
             mDishPresenter = new DishPresenter(this);
             JudgeType = 4;
         }
@@ -102,6 +106,7 @@ public class CameraActivity extends AppCompatActivity implements FlowerContract.
                     Bitmap photo = MediaStore.Images.Media.getBitmap(this.getContentResolver(), result.getUri());
                     if (JudgeType == 1){
                         mFlowerPresenter.getRecognitionResultByImage(photo);
+                        mWebPresenter.getRecognitionResultByImage(photo);
                     }else if (JudgeType == 2){
                         mAnimalPresenter.getRecognitionResultByImage(photo);
                     }else if (JudgeType == 3){
@@ -141,8 +146,9 @@ public class CameraActivity extends AppCompatActivity implements FlowerContract.
     }
 
     @Override
-    public void showListData(String listData) {
+    public void showListData(List listData) {
         String listdata = listData.toString();
         ((TextView) findViewById(R.id.tv_description)).setText(listdata);
     }
+
 }

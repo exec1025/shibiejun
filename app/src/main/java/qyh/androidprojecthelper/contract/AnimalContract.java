@@ -2,6 +2,8 @@ package qyh.androidprojecthelper.contract;
 
 import android.graphics.Bitmap;
 
+import java.util.List;
+
 import qyh.androidprojecthelper.base.BaseView;
 
 /**
@@ -10,9 +12,11 @@ import qyh.androidprojecthelper.base.BaseView;
  */
 
 public interface AnimalContract {
-    interface View extends BaseView {
+    interface View<T> extends BaseView {
         //void showListData(FlowerRecognitionResultBean listData);
-        void showListData(String listData);
+        //void showListData(String listData);
+        void showListData(List<T> listData);
+        //void showListData(List<AnimalRecognitionResultBean.ResultBean> listData);
     }
 
     interface Presenter{

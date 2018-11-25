@@ -33,10 +33,6 @@ public class FlowerPresenter implements FlowerContract.Presenter{
     private static final String SECRET_KEY = "EWoA44XREdhZ4Z68kdPBe405l9mPC0hd";
     private static final String ACCESS_TOKEN = "24.265dae68a7fe517017a96da94f615d2c.2592000.1544703164.282335-11483842";
 
- //   private static final String ACCESS_TOKEN = "24.265dae68a7fe517017a96da94f615d2c.2592000.1544703164.282335-11483842";
-
- //   private static final String ACCESS_TOKEN = "24.406c471bac1aca7a25d2f71939880a9a.2592000.1541409596.282335-11483842";
-
 
     public FlowerPresenter(FlowerContract.View mView){
         this.mView = mView;
@@ -95,13 +91,15 @@ public class FlowerPresenter implements FlowerContract.Presenter{
                     public void onNext(FlowerRecognitionResultBean flowerRecognitionResultBean) {
                         Log.e("onNext",flowerRecognitionResultBean.toString());
                         List<FlowerRecognitionResultBean.ResultBean> resultBeans = flowerRecognitionResultBean.getResult();
-                        mView.showListData(resultBeans.toString());
+                        Log.e("进入1：",flowerRecognitionResultBean.toString());
+                        //mDataPresenter.getDataToWeb(flowerRecognitionResultBean);
+                        //mDataPresenter = new WebPresenter(flowerRecognitionResultBean.toString());
+                        //mView.showListData(resultBeans.toString());
+                        mView.showListData(resultBeans);
                         //mView.showListData(flowerRecognitionResultBean.toString());
                     }
                 });
     }
-
-
 
     private String bitmapToString(Bitmap bitmap){
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

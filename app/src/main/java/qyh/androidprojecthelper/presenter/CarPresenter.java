@@ -96,7 +96,8 @@ public class CarPresenter implements CarContract.Presenter{
                         List<CarRecognitionResultBean.ResultBean> resultBeans = CarRecognitionResultBean.getResult();
                         qyh.androidprojecthelper.bean.CarRecognitionResultBean.LocationResultBean location_result = CarRecognitionResultBean.getLocation_result();
                         String color_result = CarRecognitionResultBean.getColor_result();
-                        mView.showListData(resultBeans.toString()+",color_result:"+color_result+","+location_result.toString());
+                        //mView.showListData(resultBeans.toString()+",color_result:"+color_result+","+location_result.toString());
+                        mView.showListData(resultBeans);
                     }
                 });
     }
