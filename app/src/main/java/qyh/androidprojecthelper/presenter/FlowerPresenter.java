@@ -94,7 +94,7 @@ public class FlowerPresenter implements FlowerContract.Presenter{
                     public void onNext(FlowerRecognitionResultBean flowerRecognitionResultBean) {
                         Log.e("onNext",flowerRecognitionResultBean.toString());
                         List<FlowerRecognitionResultBean.ResultBean> resultBeans = flowerRecognitionResultBean.getResult();
-                        mView.showListData(resultBeans.toString());
+                        mView.showListData(resultBeans);
                         //mView.showListData(flowerRecognitionResultBean.toString());
                     }
                 });

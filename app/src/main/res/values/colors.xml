@@ -11,7 +11,8 @@
 
     <color name="tab_unselect">#c9c9c9</color>
     <color name="main_color">#00BFFF</color>
-
+    <color name="blue_shadow">#BFEFFF</color>
+    
     <color name="white">#FFFFFF</color>
     <color name="btn_mapchange_bg">#FEFDFB</color>
     <color name="map_change_shadow">#BEBCBA</color>

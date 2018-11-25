@@ -3,12 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     >
 
-    <com.example.qike.scrolltitle.MyScrollView
+    <include
+        android:id="@+id/activity_result_header"
+        layout="@layout/activity_result_toolbar"
+        />
+
+    <qyh.androidprojecthelper.view.MyScrollView
         android:id="@+id/sv_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/title_bar_height">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,25 +27,51 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:gravity="center"
-                android:text="商品图片"/>
+                android:text="商品图片"
+                />
+
 
             <TextView
                 android:id="@+id/tv_title"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="#a3c"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:gravity="center"
-                android:text="标题view"/>
+                android:text="标题view"
+                android:textSize="30dp"/>
+
+            <TextView
+                android:id="@+id/tv_score"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:text="置信度:100%"/>
+
+            <TextView
+                android:id="@+id/tv_title_underline"
+                android:layout_width="150dp"
+                android:layout_height="3dp"
+                android:background="@color/gray"
+                android:layout_gravity="center_horizontal"/>
 
             <TextView
                 android:id="@+id/tv_description"
                 android:layout_width="match_parent"
-                android:layout_height="600dp"
-                android:background="#a2bb"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:gravity="center"
                 android:text="详情页面"/>
+
+
         </LinearLayout>
-    </com.example.qike.scrolltitle.MyScrollView>
+    </qyh.androidprojecthelper.view.MyScrollView>
 
     <TextView
         android:id="@+id/tv_float"

@@ -2,15 +2,20 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- 填充的颜色 -->
-    <solid android:color="@color/main_color"/>
+    <solid android:color="@color/white"/>
 
     android:radius 圆角的半径
     <corners android:radius="50dp"/>
 
+    <padding
+        android:top="10dp"
+        android:left="10dp"
+        android:bottom="10dp"
+        android:right="10dp"/>
 
     <!-- 边框的颜色和粗细 -->
     <stroke
         android:width="2dip"
-        android:color="@color/map_change_shadow" />
+        android:color="@color/blueLight" />
 
 </shape>

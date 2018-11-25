@@ -3,24 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
-    android:layout_height="50dp"
+    android:layout_height="?actionBarSize"
     android:layout_width="match_parent"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
     android:background="@color/white"
     >
 
     <ImageView
-        android:id="@+id/title_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/toolbar_back"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="5dp"
         android:src="@mipmap/back"/>
 
     <TextView
-        android:id="@+id/title_name"
+        android:id="@+id/result_toolbar_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:singleLine="true"

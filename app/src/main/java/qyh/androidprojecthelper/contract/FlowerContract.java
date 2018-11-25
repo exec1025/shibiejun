@@ -1,6 +1,7 @@
 package qyh.androidprojecthelper.contract;
 
 import android.graphics.Bitmap;
+import android.view.View;
 
 import java.util.List;
 
@@ -23,7 +24,7 @@ public interface FlowerContract {
 
     interface View extends BaseView{
         //void showListData(FlowerRecognitionResultBean listData);
-        void showListData(String listData);
+        void showListData(List<FlowerRecognitionResultBean.ResultBean> listData);
     }
 
     interface Presenter{

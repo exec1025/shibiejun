@@ -1,58 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"/>
 
     <include
-        android:id="@+id/activity_result_header"
         layout="@layout/activity_result_toolbar"
         />
 
-        <qyh.androidprojecthelper.view.MyScrollView
-            android:id="@+id/sv_main"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <ImageButton
+        android:id="@+id/fabButton"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/shape_circle_white"
+        android:src="@mipmap/go_top"
+        android:scaleType="fitCenter"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/image_result"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:gravity="center"
-                    android:text="商品图片"/>
-
-                <TextView
-                    android:id="@+id/tv_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:background="#a3c"
-                    android:gravity="center"
-                    android:text="标题view"/>
-
-                <TextView
-                    android:id="@+id/tv_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="600dp"
-                    android:background="#a2bb"
-                    android:gravity="center"
-                    android:text="详情页面"/>
-            </LinearLayout>
-        </qyh.androidprojecthelper.view.MyScrollView>
-
-        <TextView
-            android:id="@+id/tv_float"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="#a3c"
-            android:gravity="center"
-            android:text="标题view"
-            android:visibility="invisible"/>
-
-</RelativeLayout>
+</FrameLayout>
