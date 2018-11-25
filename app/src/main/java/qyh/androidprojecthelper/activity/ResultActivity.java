@@ -54,8 +54,8 @@ public class ResultActivity extends AppCompatActivity {
     private void initRecyclerView() {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        ActivityResultAdapter activityResultAdapter = new ActivityResultAdapter(mList);
-        recyclerView.setAdapter(activityResultAdapter);
+        //ActivityResultAdapter activityResultAdapter = new ActivityResultAdapter(mList);
+        //recyclerView.setAdapter(activityResultAdapter);
 
         recyclerView.addOnScrollListener(new HidingScrollListener() {
             @Override

@@ -27,8 +27,8 @@
         <!--item左边的Icon-->
         <ImageView
             android:id="@+id/iv_left_icon"
-            android:layout_width="20dp"
-            android:layout_height="20dp" />
+            android:layout_width="25dp"
+            android:layout_height="25dp" />
 
         <!--item中间部分的文字-->
         <TextView
@@ -60,8 +60,8 @@
         <!--item右边的Icon 默认是向右的箭头-->
         <ImageView
             android:id="@+id/iv_right_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:paddingLeft="10dp"
             android:src="@mipmap/enter_right" />
     </LinearLayout>
