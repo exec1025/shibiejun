@@ -2,6 +2,8 @@ package qyh.androidprojecthelper.contract;
 
 import android.graphics.Bitmap;
 
+import java.util.List;
+
 import qyh.androidprojecthelper.base.BaseView;
 
 /**
@@ -10,8 +12,9 @@ import qyh.androidprojecthelper.base.BaseView;
  */
 
 public interface DishContract {
-    interface View extends BaseView {
-        void showListData(String listData);
+    interface View<T> extends BaseView {
+        //void showListData(String listData);
+        void showListData(List<T> listData);
     }
 
     interface Presenter{

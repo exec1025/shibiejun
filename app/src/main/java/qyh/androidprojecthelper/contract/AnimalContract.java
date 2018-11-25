@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import java.util.List;
 
 import qyh.androidprojecthelper.base.BaseView;
-import qyh.androidprojecthelper.bean.AnimalRecognitionResultBean;
 
 /**
  * 描述:动物信息回调
@@ -13,10 +12,11 @@ import qyh.androidprojecthelper.bean.AnimalRecognitionResultBean;
  */
 
 public interface AnimalContract {
-    interface View extends BaseView {
+    interface View<T> extends BaseView {
         //void showListData(FlowerRecognitionResultBean listData);
         //void showListData(String listData);
-        void showListData(List<AnimalRecognitionResultBean.ResultBean> listData);
+        void showListData(List<T> listData);
+        //void showListData(List<AnimalRecognitionResultBean.ResultBean> listData);
     }
 
     interface Presenter{

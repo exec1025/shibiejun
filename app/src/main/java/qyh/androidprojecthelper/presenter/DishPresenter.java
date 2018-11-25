@@ -92,7 +92,7 @@ public class DishPresenter implements DishContract.Presenter{
                     public void onNext(DishRecognitionResultBean DishRecognitionResultBean) {
                         Log.e("onNext",DishRecognitionResultBean.toString());
                         List<DishRecognitionResultBean.ResultBean> resultBeans = DishRecognitionResultBean.getResult();
-                        mView.showListData(resultBeans.toString());
+                        mView.showListData(resultBeans);
                     }
                 });
     }
