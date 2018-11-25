@@ -3,7 +3,7 @@ package qyh.androidprojecthelper.activity;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by lenovo on 2018/11/15.
+ * Created by czn on 2018/11/15.
  */
 
 public class SearchActivity extends AppCompatActivity {

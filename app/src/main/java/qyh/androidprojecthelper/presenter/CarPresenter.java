@@ -9,8 +9,8 @@ import java.util.List;
 
 import qyh.androidprojecthelper.api.ApiService;
 import qyh.androidprojecthelper.bean.AccessTokenBean;
-import qyh.androidprojecthelper.bean.FlowerRecognitionResultBean;
-import qyh.androidprojecthelper.contract.FlowerContract;
+import qyh.androidprojecthelper.bean.CarRecognitionResultBean;
+import qyh.androidprojecthelper.contract.CarContract;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -19,26 +19,25 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 /**
- * 描述：花卉presenter
- * Created by czn on 2018/10/6.
+ * 描述：车型presenter
+ * Created by czn on 2018/11/22.
  */
 
-public class FlowerPresenter implements FlowerContract.Presenter{
-
-    private FlowerContract.View mView;
-    private ApiService mFlowerApiService;
+public class CarPresenter implements CarContract.Presenter{
+    private CarContract.View mView;
+    private ApiService mCarApiService;
 
     private static final String CLIENT_CREDENTIALS = "client_credentials";
     private static final String API_KEY = "nchiqbpGeMqjWsTGfjMW6wxH";
     private static final String SECRET_KEY = "EWoA44XREdhZ4Z68kdPBe405l9mPC0hd";
     private static final String ACCESS_TOKEN = "24.265dae68a7fe517017a96da94f615d2c.2592000.1544703164.282335-11483842";
 
- //   private static final String ACCESS_TOKEN = "24.265dae68a7fe517017a96da94f615d2c.2592000.1544703164.282335-11483842";
+    //   private static final String ACCESS_TOKEN = "24.265dae68a7fe517017a96da94f615d2c.2592000.1544703164.282335-11483842";
 
- //   private static final String ACCESS_TOKEN = "24.406c471bac1aca7a25d2f71939880a9a.2592000.1541409596.282335-11483842";
+    //   private static final String ACCESS_TOKEN = "24.406c471bac1aca7a25d2f71939880a9a.2592000.1541409596.282335-11483842";
 
 
-    public FlowerPresenter(FlowerContract.View mView){
+    public CarPresenter(CarContract.View mView){
         this.mView = mView;
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -47,11 +46,11 @@ public class FlowerPresenter implements FlowerContract.Presenter{
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
 
-        mFlowerApiService = retrofit.create(ApiService.class);
+        mCarApiService = retrofit.create(ApiService.class);
     }
     @Override
     public void getAccessToken() {
-        mFlowerApiService.getAccessToken(CLIENT_CREDENTIALS, API_KEY, SECRET_KEY)
+        mCarApiService.getAccessToken(CLIENT_CREDENTIALS, API_KEY, SECRET_KEY)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<AccessTokenBean>() {
@@ -77,10 +76,10 @@ public class FlowerPresenter implements FlowerContract.Presenter{
         String encodeResult = bitmapToString(bitmap);
         Integer baikenum = 1;
 
-        mFlowerApiService.getFlowerRecognitionResultByImage(ACCESS_TOKEN, encodeResult, baikenum)
+        mCarApiService.getCarRecognitionResultByImage(ACCESS_TOKEN, encodeResult, baikenum)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<FlowerRecognitionResultBean>() {
+                .subscribe(new Observer<CarRecognitionResultBean>() {
                     @Override
                     public void onCompleted() {
 
@@ -92,11 +91,12 @@ public class FlowerPresenter implements FlowerContract.Presenter{
                     }
 
                     @Override
-                    public void onNext(FlowerRecognitionResultBean flowerRecognitionResultBean) {
-                        Log.e("onNext",flowerRecognitionResultBean.toString());
-                        List<FlowerRecognitionResultBean.ResultBean> resultBeans = flowerRecognitionResultBean.getResult();
-                        mView.showListData(resultBeans);
-                        //mView.showListData(flowerRecognitionResultBean.toString());
+                    public void onNext(CarRecognitionResultBean CarRecognitionResultBean) {
+                        Log.e("onNext",CarRecognitionResultBean.toString());
+                        List<CarRecognitionResultBean.ResultBean> resultBeans = CarRecognitionResultBean.getResult();
+                        qyh.androidprojecthelper.bean.CarRecognitionResultBean.LocationResultBean location_result = CarRecognitionResultBean.getLocation_result();
+                        String color_result = CarRecognitionResultBean.getColor_result();
+                        mView.showListData(resultBeans.toString()+",color_result:"+color_result+","+location_result.toString());
                     }
                 });
     }
@@ -109,5 +109,4 @@ public class FlowerPresenter implements FlowerContract.Presenter{
         byte[] bytes = baos.toByteArray();
         return Base64.encodeToString(bytes, Base64.DEFAULT);
     }
-
 }

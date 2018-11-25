@@ -24,7 +24,7 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * 描述：
+ * 描述：网络请求封装
  * Created by czn on 2018/9/17.
  */
 public class Api {

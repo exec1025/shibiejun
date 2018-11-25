@@ -195,6 +195,6 @@ public abstract  class BaseFragment<T extends BasePresenter, E extends BaseModel
        // ButterKnife.unbind(this);
         if (mPresenter != null)
             mPresenter.onDestroy();
-        mRxManager.clear();
+       // mRxManager.clear();
     }
 }

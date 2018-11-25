@@ -8,7 +8,6 @@ import android.support.transition.AutoTransition;
 import android.support.transition.TransitionManager;
 import android.support.transition.TransitionSet;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +23,8 @@ import qyh.androidprojecthelper.activity.SearchDetailActivity;
 import qyh.androidprojecthelper.base.BaseFragment;
 
 /**
- * Created by lenovo on 2018/11/15.
+ * 描述：搜索界面（随便看看）
+ * Created by czn on 2018/11/15.
  */
 
 public class FirstSearchFragment extends BaseFragment{
@@ -57,7 +57,7 @@ public class FirstSearchFragment extends BaseFragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.e("onCreateView:", "开始监听");
+        //Log.e("onCreateView:", "开始监听");
         View view = inflater.inflate(R.layout.fragment_first_search, container, false);
         initSearchView(savedInstanceState,view);
         return view;
@@ -159,7 +159,7 @@ public class FirstSearchFragment extends BaseFragment{
         mSearchLayout.setLayoutParams(LayoutParams);
         //开始动画
         beginDelayedTransition(mSearchLayout);
-        Log.d("expand", "退出expand");
+        //Log.d("expand", "退出expand");
     }
 
     void beginDelayedTransition(ViewGroup view) {
@@ -174,9 +174,9 @@ public class FirstSearchFragment extends BaseFragment{
         return (int) (dpVale * scale + 0.5f);
     }
 
-    @Override
-    public void onResume() {
-        int id = getActivity().getIntent().getIntExtra("id", 0);
-        super.onResume();
-    }
+//    @Override
+//    public void onResume() {
+//        int id = getActivity().getIntent().getIntExtra("id", 0);
+//        super.onResume();
+//    }
 }

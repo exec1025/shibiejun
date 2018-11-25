@@ -3,27 +3,41 @@ package qyh.androidprojecthelper.bean;
 import java.util.List;
 
 /**
- * 描述:花卉识别结果信息
- * Created by czn on 2018/10/6.
+ * 描述:动物识别结果信息
+ * Created by czn on 2018/11/22.
  */
 
-public class FlowerRecognitionResultBean {
+public class AnimalRecognitionResultBean {
     /**
-     *
-     log_id = '5277068303464013782', result = [ResultBean {
-     name = '向日葵', score = '0.99601978063583', baike_info = Baike_infoBean {
-     baike_url = 'http://baike.baidu.com/item/åæ¥èµ/6106', image_url = 'http://imgsrc.baidu.com/baike/pic/item/1ad5ad6eddc451da90e58429bcfd5266d11632e4.jpg', description = '向日葵(拉丁文：Helianthus annuusL.)，为木兰纲、菊科、向日葵属的一年生草本植物。高1～3.5米。茎直立，圆形多棱角，质硬被白色粗硬毛。广卵形的叶片通常互生，先端锐突或渐尖，有基出3脉，边缘具粗锯齿，两面粗糙，被毛，有长柄。头状花序，直径10～30厘米，单生于茎顶或枝端。总苞片多层，叶质，覆瓦状排列，被长硬毛，夏季开花，花序边缘生中性的黄色舌状花，不结实。花序中部为两性管状花，棕色或紫色，能结实。矩卵形瘦果，果皮木质化，灰色或黑色，称葵花籽。原产南美洲，驯化种由西班牙人于1510年从北美带到欧洲，最初为观赏用。19世纪末，又被从俄国引回北美洲。中国均有栽培。向日葵种子叫葵花籽，常炒制之后做为零食食用，味美，也可以榨葵花籽油用于食用，油渣可以做饲料。'
+     *"log_id": 7392482912853822863,
+     "result": [{
+     "score": "0.993811",
+     "name": "叉角羚",
+     "baike_info": {
+     "baike_url": "http://baike.baidu.com/item/%E5%8F%89%E8%A7%92%E7%BE%9A/801703",
+     "description": "叉角羚(学名：Antilocapra americana)：在角的中部角鞘有向前伸的分枝，故名。体型中等，体长1-1.5米，尾长7.5-10厘米，肩高81-104厘米，成体重36-60千克，雌体比雄体小；背面为红褐色，颈部有黑色鬃毛，腹部和臀部为白色，颊面部和颈部两侧有黑色块斑；毛被下面为绒毛，上覆以粗糙、质脆的长毛，由于某些皮肤肌的作用，能使其毛被呈不同角度，以利于保暖或散热。植食。叉角羚奔跑速度非常快，最高时速达100千米。一次跳跃可达3.5-6米。善游泳。夏季组成小群活动，冬季则集结成上百只的大群。为寻找食物和水源，一年中常进行几次迁移。性机警，视觉敏锐，能看到数千米外的物体。遇险时，臀部的白色毛能立起，向同伴告警。分布于北美洲。"
      }
-     }, ResultBean {
-     name = '铁筷子', score = '0.15472760796547', baike_info = null
-     }, ResultBean {
-     name = '心叶向日葵', score = '0.0016477250028402', baike_info = null
-     }, ResultBean {
-     name = '金鸡菊', score = '0.0013097303453833', baike_info = null
-     }, ResultBean {
-     name = '堆心菊', score = '0.00094700057525188', baike_info = null
+     },
+     {
+     "score": "0.000289439",
+     "name": "印度羚"
+     },
+     {
+     "score": "0.000186248",
+     "name": "藏羚羊"
+     },
+     {
+     "score": "0.000147176",
+     "name": "跳羚"
+     },
+     {
+     "score": "0.000134434",
+     "name": "驯鹿"
+     },
+     {
+     "score": "9.86555e-05",
+     "name": "高鼻羚羊"
      }]
-
      */
     private String log_id;
     private List<ResultBean> result;
@@ -46,7 +60,7 @@ public class FlowerRecognitionResultBean {
 
     @Override
     public String toString() {
-        return "FlowerRecognitionResultBean{" +
+        return "AnimalRecognitionResultBean{" +
                 "log_id='" + log_id + '\'' +
                 ", result=" + result +
                 '}';
@@ -55,7 +69,7 @@ public class FlowerRecognitionResultBean {
     public static class ResultBean{
         private String name;
         private String score;
-        private Baike_infoBean baike_info;
+        private ResultBean.Baike_infoBean baike_info;
 
         public void setName(String name) {
             this.name = name;
@@ -65,7 +79,7 @@ public class FlowerRecognitionResultBean {
             this.score = score;
         }
 
-        public void setBaike_info(Baike_infoBean baike_info) {
+        public void setBaike_info(ResultBean.Baike_infoBean baike_info) {
             this.baike_info = baike_info;
         }
 
@@ -77,7 +91,7 @@ public class FlowerRecognitionResultBean {
             return score;
         }
 
-        public Baike_infoBean getBaike_info() {
+        public ResultBean.Baike_infoBean getBaike_info() {
             return baike_info;
         }
 

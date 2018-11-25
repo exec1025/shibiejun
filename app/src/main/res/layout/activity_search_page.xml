@@ -14,6 +14,7 @@
         android:paddingRight="10dip">
 
         <EditText
+            android:id="@+id/tv_edit_search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -25,7 +26,9 @@
             android:gravity="left|center"
             android:hint="请输入关键字"
             android:textCursorDrawable="@drawable/color_cursor_black"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"/>
 
         <TextView
             android:id="@+id/tv_cancel"

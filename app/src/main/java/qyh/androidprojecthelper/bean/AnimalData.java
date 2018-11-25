@@ -4,12 +4,12 @@ import java.util.List;
 
 /**
  * 描述：
- * Created by czn on 2018/10/6.
+ * Created by czn on 2018/11/22.
  */
 
-public class FlowerData {
+public class AnimalData {
     private boolean isError;
-    private List<FlowerRecognitionResultBean> results;
+    private List<AnimalRecognitionResultBean> results;
 
     public boolean isError() {
         return isError;
@@ -19,11 +19,11 @@ public class FlowerData {
         isError = error;
     }
 
-    public void setResults(List<FlowerRecognitionResultBean> results) {
+    public void setResults(List<AnimalRecognitionResultBean> results) {
         this.results = results;
     }
 
-    public List<FlowerRecognitionResultBean> getResults() {
+    public List<AnimalRecognitionResultBean> getResults() {
         return results;
     }
 }

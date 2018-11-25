@@ -13,21 +13,22 @@ import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+
 import com.ms_square.etsyblur.BlurringView;
+
 import qyh.androidprojecthelper.R;
 import qyh.androidprojecthelper.activity.CameraActivity;
 import qyh.androidprojecthelper.utils.KickBackAnimatorUtils;
 
 /**
  * des:拍一拍弹出框
- * Created by lenovo on 2018/9/25.
+ * Created by czn on 2018/9/25.
  */
 
 public class MoreWindow extends PopupWindow implements View.OnClickListener {
@@ -224,18 +225,28 @@ public class MoreWindow extends PopupWindow implements View.OnClickListener {
             closeAnimation();
         }
 
+        Intent intent=new Intent();
         switch (v.getId()) {
             case R.id.tv_flower:
 //                mItemOnClickListener.onItemClick(mActionItems.get(1), 1);
-                Intent intent=new Intent();
+                intent.putExtra("type", "flower");
                 intent.setClass(v.getContext(), CameraActivity.class);
                 v.getContext().startActivity(intent);
                 break;
             case R.id.tv_animal:
+                intent.putExtra("type", "animal");
+                intent.setClass(v.getContext(), CameraActivity.class);
+                v.getContext().startActivity(intent);
                 break;
             case R.id.tv_car:
+                intent.putExtra("type", "car");
+                intent.setClass(v.getContext(), CameraActivity.class);
+                v.getContext().startActivity(intent);
                 break;
             case R.id.tv_food:
+                intent.putExtra("type", "dish");
+                intent.setClass(v.getContext(), CameraActivity.class);
+                v.getContext().startActivity(intent);
                 break;
         }
 

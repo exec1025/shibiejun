@@ -36,19 +36,31 @@ import qyh.androidprojecthelper.R;
 import qyh.androidprojecthelper.adapter.ActivityResultAdapter;
 import qyh.androidprojecthelper.adapter.listener.HidingScrollListener;
 import qyh.androidprojecthelper.bean.FlowerRecognitionResultBean;
+import qyh.androidprojecthelper.contract.AnimalContract;
+import qyh.androidprojecthelper.contract.CarContract;
+import qyh.androidprojecthelper.contract.DishContract;
 import qyh.androidprojecthelper.contract.FlowerContract;
+import qyh.androidprojecthelper.presenter.AnimalPresenter;
+import qyh.androidprojecthelper.presenter.CarPresenter;
+import qyh.androidprojecthelper.presenter.DishPresenter;
 import qyh.androidprojecthelper.presenter.FlowerPresenter;
 import qyh.androidprojecthelper.utils.ImageLoaderUtils;
 import qyh.androidprojecthelper.view.MyScrollView;
 
 /**
- * Created by lenovo on 2018/10/3.
+ * 描述：相机调用
+ * Created by czn on 2018/10/3.
  */
 
-public class CameraActivity extends AppCompatActivity implements FlowerContract.View {
+public class CameraActivity extends AppCompatActivity implements FlowerContract.View,AnimalContract.View, CarContract.View, DishContract.View{
 
     private FlowerPresenter mFlowerPresenter;
+    private AnimalPresenter mAnimalPresenter;
+    private CarPresenter mCarPresenter;
+    private DishPresenter mDishPresenter;
+
     private MyScrollView mScrollView;
+    private int JudgeType;
 
     private Toolbar mToolbar;
     private ImageButton mFabButton;
@@ -65,7 +77,28 @@ public class CameraActivity extends AppCompatActivity implements FlowerContract.
         //启动图像选择器
         CropImage.activity(null).setGuidelines(CropImageView.Guidelines.ON).start(this);
 
-        mFlowerPresenter = new FlowerPresenter(this);
+
+        Bundle extras = getIntent().getExtras();
+        //Log.e("extras_type:", extras.getString("type"));
+        String type = extras.getString("type");
+        if (type.equals("flower")){
+            //Log.e("extras_type:", "return flower");
+            mFlowerPresenter = new FlowerPresenter(this);
+            JudgeType = 1;
+        }else if (type.equals("animal")){
+            //Log.e("extras_type:", "return animal");
+            mAnimalPresenter = new AnimalPresenter(this);
+            JudgeType = 2;
+        }else if (type.equals("car")){
+            //Log.e("extras_type:", "return car");
+            mCarPresenter = new CarPresenter(this);
+            JudgeType = 3;
+        }else if (type.equals("dish")){
+            //Log.e("extras_type:", "return car");
+            mDishPresenter = new DishPresenter(this);
+            JudgeType = 4;
+        }
+
         mScrollView = new MyScrollView(this);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -74,8 +107,6 @@ public class CameraActivity extends AppCompatActivity implements FlowerContract.
         result_toolbar_title = (TextView) findViewById(R.id.result_toolbar_title);
         result_toolbar_title.setText("识别结果");
         initListener();
-
-        //initRecyclerView();
     }
 
     protected void initListener(){
@@ -146,14 +177,23 @@ public class CameraActivity extends AppCompatActivity implements FlowerContract.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        // handle result of CropImageActivity
+        // 裁剪图片并返回结果
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
             //    ((ImageView) findViewById(R.id.image_result)).setImageURI(result.getUri());
                 try {
                     Bitmap photo = MediaStore.Images.Media.getBitmap(this.getContentResolver(), result.getUri());
-                    mFlowerPresenter.getRecognitionResultByImage(photo);
+                    if (JudgeType == 1){
+                        mFlowerPresenter.getRecognitionResultByImage(photo);
+                    }else if (JudgeType == 2){
+                        mAnimalPresenter.getRecognitionResultByImage(photo);
+                    }else if (JudgeType == 3){
+                        mCarPresenter.getRecognitionResultByImage(photo);
+                    }else if (JudgeType == 4){
+                        mDishPresenter.getRecognitionResultByImage(photo);
+                    }
+
                 } catch (IOException e) {
                     Log.e("photo error:", "图片出错");
                 }
