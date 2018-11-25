@@ -94,7 +94,7 @@ public class AnimalPresenter implements AnimalContract.Presenter {
                     public void onNext(AnimalRecognitionResultBean animalRecognitionResultBean) {
                         Log.e("onNext",animalRecognitionResultBean.toString());
                         List<AnimalRecognitionResultBean.ResultBean> resultBeans = animalRecognitionResultBean.getResult();
-                        mView.showListData(resultBeans.toString());
+                        mView.showListData(resultBeans);
                     }
                 });
     }

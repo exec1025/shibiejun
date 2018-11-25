@@ -3,7 +3,10 @@ package qyh.androidprojecthelper.contract;
 import android.graphics.Bitmap;
 import android.view.View;
 
+import java.util.List;
+
 import qyh.androidprojecthelper.base.BaseView;
+import qyh.androidprojecthelper.bean.FlowerRecognitionResultBean;
 
 /**
  * 描述：花卉信息回调
