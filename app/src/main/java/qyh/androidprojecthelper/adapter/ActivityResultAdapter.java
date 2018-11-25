@@ -14,6 +14,7 @@ import java.util.List;
 import qyh.androidprojecthelper.R;
 import qyh.androidprojecthelper.base.baseadapter.BaseQuickAdapter;
 import qyh.androidprojecthelper.base.baseadapter.BaseViewHolder;
+import qyh.androidprojecthelper.bean.AnimalRecognitionResultBean;
 import qyh.androidprojecthelper.bean.FirstBean;
 import qyh.androidprojecthelper.bean.FlowerRecognitionResultBean;
 import qyh.androidprojecthelper.utils.ImageLoaderUtils;
@@ -24,21 +25,30 @@ public class ActivityResultAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     private static final int TYPE_ITEM_DETAIL = 2;    //大图详细布局(置信度最大)
     private static final int TYPE_ITEM_SIMPLE = 3;    //小图简单布局
     private List<FlowerRecognitionResultBean.ResultBean> mItemList;
+    private String type;
 
-    public ActivityResultAdapter(List<FlowerRecognitionResultBean.ResultBean> itemList) {
-        mItemList = itemList;
+    public ActivityResultAdapter(List itemList, String type){
+            this.mItemList = itemList;
+            this.type = type;
     }
 
     @Override
     public int getItemViewType(int position) {
 
+        Object baike_infoBean = null;
+
         if (position == 0) {
             return TYPE_HEADER;  //toolBar布局
         }
-
+//        if(type.equals("flower")){
+//            FlowerRecognitionResultBean.ResultBean flowerResultBean = (FlowerRecognitionResultBean.ResultBean)mItemList.get(position-1);
+//            baike_infoBean = flowerResultBean.getBaike_info();
+//        }else if (type.equals("animal")){
+//            AnimalRecognitionResultBean.ResultBean animalResultBean = (AnimalRecognitionResultBean.ResultBean)mItemList.get(position-1);
+//            baike_infoBean = animalResultBean.getBaike_info();
+//        }
         Log.i("测试", "position="+(position-1));
-        FlowerRecognitionResultBean.ResultBean.Baike_infoBean baike_infoBean = null;
-        baike_infoBean = mItemList.get(position-1).getBaike_info();
+        //baike_infoBean = mItemList.get(position-1);
 
         if(baike_infoBean == null){
             return TYPE_ITEM_SIMPLE;  //小图简单布局
@@ -65,7 +75,6 @@ public class ActivityResultAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             case TYPE_ITEM_SIMPLE :
                 view = LayoutInflater.from(context).inflate(R.layout.activity_result_simple, parent, false);
                 return RecyclerItemViewHolder.newSimpleItemViewInstance(view);
-
         }
         throw new RuntimeException("There is no type that matches the type " + viewType + " + make sure your using types correctly");
 

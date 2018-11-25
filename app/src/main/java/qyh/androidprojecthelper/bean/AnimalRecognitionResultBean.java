@@ -104,7 +104,7 @@ public class AnimalRecognitionResultBean {
                     '}';
         }
 
-        private static class Baike_infoBean{
+        public static class Baike_infoBean{
             private String baike_url;
             private String image_url;
             private String description;

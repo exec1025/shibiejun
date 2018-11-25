@@ -61,12 +61,14 @@ public class CameraActivity extends AppCompatActivity implements FlowerContract.
 
     private MyScrollView mScrollView;
     private int JudgeType;
+    private String type;
 
     private Toolbar mToolbar;
     private ImageButton mFabButton;
     private TextView result_toolbar_title;
     private ImageView toolbar_back;
     private List<FlowerRecognitionResultBean.ResultBean> mList;
+
     private RecyclerView recyclerView;
 
     @Override
@@ -80,7 +82,7 @@ public class CameraActivity extends AppCompatActivity implements FlowerContract.
 
         Bundle extras = getIntent().getExtras();
         //Log.e("extras_type:", extras.getString("type"));
-        String type = extras.getString("type");
+        type = extras.getString("type");
         if (type.equals("flower")){
             //Log.e("extras_type:", "return flower");
             mFlowerPresenter = new FlowerPresenter(this);
@@ -137,7 +139,7 @@ public class CameraActivity extends AppCompatActivity implements FlowerContract.
     private void initRecyclerView() {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        ActivityResultAdapter activityResultAdapter = new ActivityResultAdapter(mList);
+        ActivityResultAdapter activityResultAdapter = new ActivityResultAdapter(mList, type);
         recyclerView.setAdapter(activityResultAdapter);
 
         recyclerView.addOnScrollListener(new HidingScrollListener() {
@@ -225,7 +227,7 @@ public class CameraActivity extends AppCompatActivity implements FlowerContract.
     }
 
     @Override
-    public void showListData(List<FlowerRecognitionResultBean.ResultBean> listData) {
+    public void showListData(List listData) {
         //String listdata = listData.toString();
 
         mList = listData;
