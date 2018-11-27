@@ -98,7 +98,7 @@ public class ThirdTabFragment extends BaseFragment implements MyOneLineView.OnRo
                 Toast.makeText(getActivity(), "尽请期待！", Toast.LENGTH_SHORT).show();
                 break;
             case 4:
-                new CommomDialog(this.getContext(), R.style.dialog, "15组：陈振南 庄易鸿 林泽辉 方正友 吴悠 郭振弘", new CommomDialog.OnCloseListener() {
+                new CommomDialog(this.getContext(), R.style.dialog, "15组：陈振南 庄易鸿 林泽辉      方正友 吴悠 郭振弘", new CommomDialog.OnCloseListener() {
                     @Override
                     public void onClick(Dialog dialog, boolean confirm) {
                         if(confirm){
