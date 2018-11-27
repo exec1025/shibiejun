@@ -32,7 +32,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/logo"/>
+                android:src="@mipmap/user_logo"/>
 
             <TextView
                 android:id="@+id/tv_mine_name"
@@ -41,8 +41,8 @@
                 android:layout_below="@+id/iv_mine_avatar"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:textColor="@color/blueLight"
-                android:text="陈振南"/>
+                android:textColor="@color/white"
+                android:text="识别君"/>
 
             <TextView
                 android:id="@+id/tv_mine_account"
@@ -54,7 +54,7 @@
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
                 android:paddingTop="3dp"
-                android:textColor="@color/blueLight"
+                android:textColor="@color/white"
                 android:text="16-软件-工程"
                 android:textSize="12sp"/>
 

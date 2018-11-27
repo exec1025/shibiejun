@@ -92,6 +92,7 @@ public class SecondMapFragment_ extends BaseFragment implements CompoundButton.O
         aMap.setLocationSource(this);
         aMap.setMyLocationEnabled(true);
         toggleButton=(ToggleButton) view.findViewById(R.id.btn_mapchange);
+        toggleButton.setAlpha(0.8f);
     }
 
     private void initlistener(){

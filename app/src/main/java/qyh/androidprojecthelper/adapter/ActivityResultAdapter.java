@@ -12,10 +12,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import qyh.androidprojecthelper.R;
-import qyh.androidprojecthelper.base.baseadapter.BaseQuickAdapter;
-import qyh.androidprojecthelper.base.baseadapter.BaseViewHolder;
-import qyh.androidprojecthelper.bean.AnimalRecognitionResultBean;
-import qyh.androidprojecthelper.bean.FirstBean;
 import qyh.androidprojecthelper.bean.FlowerRecognitionResultBean;
 import qyh.androidprojecthelper.utils.ImageLoaderUtils;
 
