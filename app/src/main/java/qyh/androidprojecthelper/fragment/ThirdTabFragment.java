@@ -1,6 +1,5 @@
 package qyh.androidprojecthelper.fragment;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -39,15 +38,15 @@ public class ThirdTabFragment extends BaseFragment implements MyOneLineView.OnRo
         ll_mine_item = (LinearLayout) getActivity().findViewById(R.id.ll_mine_item);
         //icon + 文字 + 箭头
         ll_mine_item.addView(new MyOneLineView(getActivity())
-                .initMine(R.mipmap.ic_collection, "我的收藏", "未实现", true)
+                .initMine(R.mipmap.ic_collection, "我的收藏", "", true)
                 .setOnRootClickListener(this, 1));
 
         ll_mine_item.addView(new MyOneLineView(getActivity())
-                .initMine(R.mipmap.ic_history, "识别历史", "未实现", true)
+                .initMine(R.mipmap.ic_history, "识别历史", "", true)
                 .setOnRootClickListener(this, 2));
 
         ll_mine_item.addView(new MyOneLineView(getActivity())
-                .initMine(R.mipmap.ic_advice, "我要吐槽", "未实现", true)
+                .initMine(R.mipmap.ic_advice, "我要吐槽", "", true)
                 .setOnRootClickListener(this, 3));
 
         ll_mine_item.addView(new MyOneLineView(getActivity())
@@ -62,7 +61,7 @@ public class ThirdTabFragment extends BaseFragment implements MyOneLineView.OnRo
                 .setOnRootClickListener(this, 5));
 
         ll_mine_item.addView(new MyOneLineView(getActivity())
-                .initMine(R.mipmap.ic_user, "账户设置", "未实现", true)
+                .initMine(R.mipmap.ic_user, "账户设置", "", true)
                 .setOnRootClickListener(this, 6));
 //        //icon + 文字 + 文字 + 箭头
 //        ll_mine_item.addView(new MyOneLineView(getActivity())

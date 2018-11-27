@@ -40,9 +40,9 @@ public class WebPresenter implements WebContract.Presenter{
 
     @Override
     public void getRecognitionResultByImage(Bitmap bitmap) {
-        //String encodeResult = bitmapToString(bitmap);
+        String encodeResult = bitmapToString(bitmap);
         String Json = recognitioResultBean;
-        String encodeResult ="test";
+       // String encodeResult ="test";
         //String Json = "test";
 
         Log.e("WebPresenter", "进入getRecognitionResultByImage");

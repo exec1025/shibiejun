@@ -82,7 +82,7 @@ public interface ApiService {
     /**
      * @param accessToken 通过API key和Serect key获取的access_token
      * @param image 图像数据通过base64编码后进行urlencode后的String
-     * @return observable对象用于Rxjava,从DishRecognitionResultBean中获得的动物识别的信息
+     * @return observable对象用于Rxjava,从DishRecognitionResultBean中获得的菜品识别的信息
      */
     @POST("rest/2.0/image-classify/v2/dish")
     @FormUrlEncoded
@@ -95,7 +95,7 @@ public interface ApiService {
     /**
      * @param image 图像数据通过base64编码后进行urlencode后的String
      * @param recognitioresultbean 百度接口获取的json发送给web后端
-     * @return observable对象用于Rxjava,从DishRecognitionResultBean中获得的动物识别的信息
+     * @return observable对象用于Rxjava,从DishRecognitionResultBean中获得的菜品识别的信息
      */
     @POST("index/user")
     @FormUrlEncoded
