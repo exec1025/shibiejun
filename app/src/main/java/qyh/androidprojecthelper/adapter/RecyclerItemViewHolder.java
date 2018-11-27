@@ -1,14 +1,7 @@
 package qyh.androidprojecthelper.adapter;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.SparseArray;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import qyh.androidprojecthelper.R;
 
@@ -25,6 +18,11 @@ public class RecyclerItemViewHolder extends RecyclerView.ViewHolder {
 
     public static RecyclerItemViewHolder newEmptyItemViewInstance(View parent) {
         View itemView =  parent.findViewById(R.layout.show_empty);
+        return new RecyclerItemViewHolder(parent, itemView);
+    }
+
+    public static RecyclerItemViewHolder newLargeViewInstance(View parent) {
+        View itemView =  parent.findViewById(R.layout.fragment_first_show_large);
         return new RecyclerItemViewHolder(parent, itemView);
     }
 

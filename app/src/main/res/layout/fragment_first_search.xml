@@ -6,28 +6,28 @@
     android:layout_height="match_parent"
     android:background="#c2c0c0"
     >
-    <ScrollView
-        android:id="@+id/scrollView"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:scrollbars="none">
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <!--<FrameLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="1500dp">
+            <!--<FrameLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1500dp">-->
 
-                <ImageView
-                    android:id="@+id/iv_img"
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/mine_bg" />
-            </FrameLayout>
-        </FrameLayout>
-    </ScrollView>
+                <!--<ImageView-->
+                    <!--android:id="@+id/iv_img"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="180dp"-->
+                    <!--android:scaleType="centerCrop"-->
+                    <!--android:src="@mipmap/mine_bg" />-->
+            <!--</FrameLayout>-->
+        <!--</FrameLayout>-->
+    </android.support.v7.widget.RecyclerView>
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
