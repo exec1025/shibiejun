@@ -58,6 +58,7 @@ public class FlowerPresenter implements FlowerContract.Presenter{
 
                     @Override
                     public void onError(Throwable e) {
+
                         Log.e("Access token", "error");
                     }
 
@@ -84,7 +85,6 @@ public class FlowerPresenter implements FlowerContract.Presenter{
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e("onError:",e.toString());
                     }
 
                     @Override

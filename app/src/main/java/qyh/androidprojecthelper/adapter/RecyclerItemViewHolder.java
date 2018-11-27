@@ -23,6 +23,11 @@ public class RecyclerItemViewHolder extends RecyclerView.ViewHolder {
         mItemView = itemView;
     }
 
+    public static RecyclerItemViewHolder newEmptyItemViewInstance(View parent) {
+        View itemView =  parent.findViewById(R.layout.show_empty);
+        return new RecyclerItemViewHolder(parent, itemView);
+    }
+
     public static RecyclerItemViewHolder newDetailItemViewInstance(View parent) {
         View itemView =  parent.findViewById(R.layout.activity_result_detail);
         return new RecyclerItemViewHolder(parent, itemView);

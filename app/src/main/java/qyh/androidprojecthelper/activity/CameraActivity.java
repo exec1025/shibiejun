@@ -223,7 +223,6 @@ public class CameraActivity extends AppCompatActivity implements FlowerContract.
 
     @Override
     public void showErrorTip(String msg) {
-
     }
 
     @Override

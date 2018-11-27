@@ -21,6 +21,7 @@ import qyh.androidprojecthelper.utils.ImageLoaderUtils;
 
 public class ActivityResultAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    private static final int TYPE_EMPTY = 0;          //空布局
     private static final int TYPE_HEADER = 1;         //toolBar布局
     private static final int TYPE_ITEM_DETAIL = 2;    //大图详细布局(置信度最大)
     private static final int TYPE_ITEM_SIMPLE = 3;    //小图简单布局
@@ -35,10 +36,19 @@ public class ActivityResultAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     @Override
     public int getItemViewType(int position) {
 
-        Object baike_infoBean = null;
-
         if (position == 0) {
             return TYPE_HEADER;  //toolBar布局
+        }
+
+        //暂时将非植物识别的数据全设为空布局
+        if (!type.equals("flower")){
+            return TYPE_EMPTY;  //空布局
+        }
+
+
+        String title_name = mItemList.get(position-1).getName();
+        if(title_name.equals("非植物")){
+            return TYPE_EMPTY;  //空布局
         }
 //        if(type.equals("flower")){
 //            FlowerRecognitionResultBean.ResultBean flowerResultBean = (FlowerRecognitionResultBean.ResultBean)mItemList.get(position-1);
@@ -48,7 +58,7 @@ public class ActivityResultAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 //            baike_infoBean = animalResultBean.getBaike_info();
 //        }
         Log.i("测试", "position="+(position-1));
-        //baike_infoBean = mItemList.get(position-1);
+        FlowerRecognitionResultBean.ResultBean.Baike_infoBean baike_infoBean = mItemList.get(position-1).getBaike_info();
 
         if(baike_infoBean == null){
             return TYPE_ITEM_SIMPLE;  //小图简单布局
@@ -63,6 +73,10 @@ public class ActivityResultAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         Context context = parent.getContext();
         final View view;
         switch(viewType){
+            //空布局
+            case TYPE_EMPTY:
+                view = LayoutInflater.from(context).inflate(R.layout.show_empty, parent, false);
+                return RecyclerItemViewHolder.newEmptyItemViewInstance(view);
             //toolBar布局
             case TYPE_HEADER :
                 view = LayoutInflater.from(context).inflate(R.layout.activity_result_toolbar, parent, false);
@@ -89,6 +103,10 @@ public class ActivityResultAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             //RecyclerItemViewHolder holder = (RecyclerItemViewHolder) viewHolder;
             //String itemText = mItemList.get(position - 1); // header
             //holder.setItemText(itemText);
+        }else if(itemType == TYPE_EMPTY){
+            RecyclerItemViewHolder holder = (RecyclerItemViewHolder) viewHolder;
+            TextView textView = holder.getView(R.id.show_empty_hint);
+            textView.setText("非植物识别");
         }else if(itemType == TYPE_ITEM_DETAIL){   //大图详细布局
             RecyclerItemViewHolder holder = (RecyclerItemViewHolder) viewHolder;
             TextView tv_title = (TextView)holder.getView(R.id.tv_title);
@@ -96,6 +114,7 @@ public class ActivityResultAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             TextView tv_description = ((TextView) holder.getView(R.id.tv_description));
             ImageView img = ((ImageView) holder.getView(R.id.image_result));
 
+            Log.i("测试", mItemList.get(position - 1).toString());
             //设置图片
             String url = mItemList.get(position - 1).getBaike_info().getImage_url().toString();
             ImageLoaderUtils.display(holder.parent.getContext(), img, url);
