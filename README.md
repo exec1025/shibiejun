@@ -13,7 +13,7 @@
   * 6、``ToolBar``,``Glide``,多层级Viewpager的使用。
   * 7、自定义下拉刷新，上拉加载。
 
-# 闲话少唠，代码先读为快（核心代码）
+# 核心代码
 **1. View 中代码，泛型中传入P 和m,并绑定彼此之间的关系**
 ````java
 public class FirstTabFragment extends BaseFragment<FirstPresenter,FirstModel>
