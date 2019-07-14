@@ -21,12 +21,12 @@ import rx.Observable;
  */
 public interface ApiService {
     /**
-     * 图片URL   http://gank.io/api/data/福利/20/1
+     * 图片URL   http://gank.io/api/data/test/20/1 接口测试
      * @param size
      * @param page
      * @return
      */
-    @GET("data/福利/{size}/{page}")
+    @GET("data/test/{size}/{page}")
     Observable<GirlData> getListData(
 //            @Header("Cache-Control") String cacheControl,
             @Path("size") int size,
@@ -70,7 +70,7 @@ public interface ApiService {
     /**
      * @param accessToken 通过API key和Serect key获取的access_token
      * @param image 图像数据通过base64编码后进行urlencode后的String
-     * @return observable对象用于Rxjava,从CarRecognitionResultBean中获得的动物识别的信息
+     * @return observable对象用于Rxjava,从CarRecognitionResultBean中获得的车型识别的信息
      */
     @POST("rest/2.0/image-classify/v1/car")
     @FormUrlEncoded

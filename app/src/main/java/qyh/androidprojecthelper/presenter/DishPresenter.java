@@ -32,7 +32,7 @@ public class DishPresenter implements DishContract.Presenter{
     private static final String CLIENT_CREDENTIALS = "client_credentials";
     private static final String API_KEY = "nchiqbpGeMqjWsTGfjMW6wxH";
     private static final String SECRET_KEY = "EWoA44XREdhZ4Z68kdPBe405l9mPC0hd";
-    private static final String ACCESS_TOKEN = "24.265dae68a7fe517017a96da94f615d2c.2592000.1544703164.282335-11483842";
+    private static final String ACCESS_TOKEN = "24.18ee539e7725e438aa312bcdeba10750.2592000.1563367354.282335-11483842";
     private static final float FILTER_THRESHOLD = (float) 0.95;
 
     public DishPresenter(DishContract.View mView){
